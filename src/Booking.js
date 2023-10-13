@@ -31,7 +31,7 @@ const Booking = () => {
 
     // fetch data first
     const fetchData = async () => {
-        await fetch("http://localhost:8080/allData").then((res) => {
+        await fetch("http://localhost:8080/api/allData").then((res) => {
             console.log(res)
             return res.json()
         }).then((res) => {
@@ -41,14 +41,14 @@ const Booking = () => {
 
     const LastBookingDetails=async()=>
     {
-        await fetch("http://localhost:8080/lastBookingDetails").then((res) => {
-            console.log(res)
+        await fetch("http://localhost:8080/api/lastBookingDetails").then((res) => {
+            
             return res.json()
         }).then((res) => {
             setLastBooking(res)
-            console.log(res)
+            console.log("sd"+res)
             setLoader2(false)
-
+      
 
 
         })
@@ -142,7 +142,7 @@ const Booking = () => {
                         id: event.target.value
                     }
                     setLoader(true)
-                    await fetch("http://localhost:8080/booking", {
+                    await fetch("http://localhost:8080/api/booking", {
                         method: "POST",
                         body: JSON.stringify(selectedDataVal),
                         headers: {
