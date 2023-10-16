@@ -31,7 +31,7 @@ const Booking = () => {
 
     // fetch data first
     const fetchData = async () => {
-        await fetch("http://localhost:8080/api/allData").then((res) => {
+        await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/allData`).then((res) => {
             console.log(res)
             return res.json()
         }).then((res) => {
@@ -41,7 +41,7 @@ const Booking = () => {
 
     const LastBookingDetails=async()=>
     {
-        await fetch("http://localhost:8080/api/lastBookingDetails").then((res) => {
+        await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/lastBookingDetails`).then((res) => {
             
             return res.json()
         }).then((res) => {
@@ -142,7 +142,7 @@ const Booking = () => {
                         id: event.target.value
                     }
                     setLoader(true)
-                    await fetch("http://localhost:8080/api/booking", {
+                    await fetch(`${process.env.REACT_APP_API_ADDRESS}/api/booking`, {
                         method: "POST",
                         body: JSON.stringify(selectedDataVal),
                         headers: {
